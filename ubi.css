@@ -303,3 +303,22 @@ a{
 .language img{
     width:20px;
 }
+.inside{
+    background:white;
+}
+.inside_before,.inside_after{
+    background:#a800ff;
+    color:white;
+    width:60%;
+    height:120px;
+    margin:0 auto 0 auto;
+}
+.inside_before>p{
+    font-weight:700;
+    font-size:40px;
+    text-transform: uppercase;
+    text-align:center;
+    margin-top:0;
+    padding-top: 40px;
+    letter-spacing: 3px;
+}
