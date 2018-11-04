@@ -5,6 +5,7 @@
 body{
     font-family: UbisoftSans,Helvetica Neue,Helvetica,Arial,sans-serif;
     margin:0;
+    background: #1d1e22;
 }
 img{
     vertical-align:middle;
@@ -22,7 +23,7 @@ a{
 }
 .pc_nav_logo_container{
     float:left;
-    position:relative;
+    position:absolute;
     display:inline-block;
 }
 .pc_nav_logo{
@@ -34,10 +35,12 @@ a{
 .pc_nav ul{
     text-align:center;
     list-style:none;
-    display:block;
+    display:inline-block;
     margin:0;
     padding:0;
     cursor: default;
+    width:100%;
+    position:absolute;
 }
 .pc_nav ul li{
     display:inline-block;
@@ -68,15 +71,22 @@ a{
     filter:opacity(1);
 }
 .pc_nav_search{
-    display:block;
-
+    display:inline-block;
+    position:absolute;
+    right: 8%;
+    top: 30%;
+    cursor:pointer;
 }
 .search_icon{
     width:18px;
     height:18px;
 }
+.join_us{
+    background:white;
+}
 .join_title{
     text-align:center;
+    margin-top:0;
 }
 .join_us>h2,.join_us>h4{
     text-align:center;
@@ -101,10 +111,7 @@ a{
     position:relative;
 }
 .join_us_card{
-    box-shadow: 0 0 50px rgba(0,0,0,0.2);
-    min-height: 400px;
-    height:auto;
-    position:relative;
+    background: #ff9678;
 }
 .join_card_container{
     padding:25px;
@@ -140,9 +147,10 @@ a{
     bottom:35px;
 }
 .join_us_card_container{
-    background:#ff9678;
+    height:auto;
+    max-width:185px;
+    max-height:275px;
     cursor:pointer;
-    max-width: 225px;
 }
 .join_card_wrapper{
     text-align:center;
@@ -182,12 +190,12 @@ a{
 .join_btn_container{
     text-align:center;
 }
-.join_card_container .join_us{
+.join_us_join_us{
     font-size:18px;
     color:white;
     text-align:center;
     min-height:36px;
-    margin-top:9px;
+    margin-top:12px;
     margin-bottom:9px;
 }
 .join_btn_container img{
@@ -203,6 +211,45 @@ a{
 .footer{
     position:relative;
     margin:0;
-    background:black;
     bottom:0;
+}
+.channels{
+    height:60px;
+    color:#888787;
+    top:14px;
+    background: black;
+}
+.channels_text{
+    height:100%;
+    font-size:14px;
+    position:absolute;
+    top:23px;
+    margin:0;
+    margin-left:8%;
+}
+.channels_btn{
+    transition-duration:0.6s;
+    cursor:pointer;
+    height:32px;
+    width:32px;
+    margin: 14px 20px 14px 0;
+}
+.channels_btn:hover{
+    filter: opacity(0.65);
+}
+.channels_list{
+    text-align:center;
+    height:36px;
+}
+.download{
+    text-align:center;
+    margin:30px;
+}
+.download a{
+    color:#888787;
+}
+.copyright{
+    text-align:center;
+    color:#888787;
+    font-size:12.5px;
 }
