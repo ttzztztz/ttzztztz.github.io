@@ -80,6 +80,7 @@ a{
 }
 .join_us>h2,.join_us>h4{
     text-align:center;
+    letter-spacing: 2px;
     -webkit-font-smoothing: antialiased;
 }
 .join_sub{
@@ -96,31 +97,63 @@ a{
 }
 .join_card{
     box-shadow: 0 0 50px rgba(0,0,0,0.2);
-    min-height: 445px;
-    max-width: 435px;
-    min-width: 230px;
+
+    position:relative;
+}
+.join_us_card{
+    box-shadow: 0 0 50px rgba(0,0,0,0.2);
+    min-height: 400px;
+    height:auto;
     position:relative;
 }
 .join_card_container{
-    display:inline-block;
     padding:25px;
-    width:416px;
+    display:inline-block;
+    width : 28%;
+    min-height: 350px;
+    max-height: 600px;
+    max-width: 435px;
+    min-width: 230px;
 }
 .join_card_img{
-    height:100%;
     width:100%;
-    margin-top:-12px;
+    margin-top: -12px;
 }
 .join_card_img_container{
+    position:absolute;
+    height:50%;
+    display:block;
+    left:0;
+    right:0;
+}
+.join_us_card_img{
+    width:100%;
+    cursor: default;
+}
+.join_us_card_img_container{
     position:relative;
-    height:25%;
+
+    display:block;
+    top:0;
+    left:0;
+    right:0;
+    bottom:35px;
+}
+.join_us_card_container{
+    background:#ff9678;
+    cursor:pointer;
+    max-width: 225px;
+}
+.join_card_wrapper{
+    text-align:center;
 }
 .join_introduction{
-    position:absolute;
     display:inline-block;
     text-align:left;
-    left: 8%;
-    right:8%;
+    margin-left: 8%;
+    margin-right:8%;
+    margin-bottom:3%;
+    margin-top: 55%;
 }
 .join_introduction>h4{
     font-size:18px;
@@ -131,4 +164,45 @@ a{
     color:#5a5a5a;
     font-weight:400;
     -webkit-font-smoothing: antialiased;
+}
+.join_btn{
+    border-radius: 20px;
+    height:43px;
+    color:white;
+    text-align:center;
+    background: #ff6050;
+    margin-top:15px;
+    padding:10px 48px;
+    border:0;
+    font-family: UbisoftSans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight:700;
+    cursor: pointer;
+    font-size:18px;
+}
+.join_btn_container{
+    text-align:center;
+}
+.join_card_container .join_us{
+    font-size:18px;
+    color:white;
+    text-align:center;
+    min-height:36px;
+    margin-top:9px;
+    margin-bottom:9px;
+}
+.join_btn_container img{
+    width:150px;
+}
+.join_card_shadow{
+    width:100%;
+}
+.join_card_shadow img{
+    position:relative;
+    width:100%;
+}
+.footer{
+    position:relative;
+    margin:0;
+    background:black;
+    bottom:0;
 }
