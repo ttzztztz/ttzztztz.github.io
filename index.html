@@ -9,7 +9,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Ubisoft | Welcome to the official Ubisoft website">
     <meta property="og:description" content="Welcome to the official website for Ubisoft, creator of Assassin's Creed, Just Dance, Tom Clancy's video game series, Rayman, Far Cry, Watch Dogs and many others. Learn more about our breathtaking games here!">
-    <link rel="stylesheet" href="ubi.css">
+    <link rel="stylesheet" href="css/ubi.css">
 </head>
 <body>
 <div id="root">
@@ -29,6 +29,42 @@
         <div class="pc_nav_search">
         <a class="SearchButton"><img class="search_icon" alt="search" src="img/search.png"></a>
         </div>
+    </div>
+    <div class="roll_container">
+        <ul id="roll_container_list" class="roll_container_list">
+            <li class="roll">
+                <img src="img/first/assassins_p.jpg"/>
+                <div class="roll_content roll_content_active">
+                    <h4 style="font-size:2.6vw;color:rgb(150, 15, 15);">"THE BEST THE SERIES HAS EVER BEEN" -IGN</h4>
+                    <h4 style="font-size:5.6vw;color:white;">AVAILABLE NOW</h4>
+                </div>
+            </li>
+            <li class="roll">
+                <img src="img/first/crew_p.jpg"/>
+                <div class="roll_content">
+                    <h4 style="font-size:2.6vw;color:rgb(142, 229, 63);">THE CREW 2 - GATOR RUSH</h4>
+                    <h4 style="font-size:5.6vw;color:white;">GATOR RUSH - FREE UPDATE AVAILABLE NOW</h4>
+                </div>
+            </li>
+            <li class="roll">
+                <img src="img/first/division_p.jpg"/>
+                <div class="roll_content">
+                    <h4 style="font-size:2.6vw;color:rgb(150, 15, 15);">TOM CLANCY'S THE DIVISION 2</h4>
+                    <h4 style="font-size:5.6vw;color:white;">HISTORY WILL REMEMBER</h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="roll_nav">
+            <li class="roll_nav_items">
+                <img src="img/first/assassins.png"/>
+            </li>
+            <li class="roll_nav_items">
+                <img src="img/first/crew.png"/>
+            </li>
+            <li class="roll_nav_items">
+                <img src="img/first/division.png"/>
+            </li>
+        </ul>
     </div>
 
     <div class="trending">
@@ -55,7 +91,7 @@
             <p>INSIDE UBISOFT</p>
         </div>
         <div class="inside_container">
-            <div class="inside_item inside_item_active">
+            <div class="inside_item inside_item_active" style="left:0%;">
                 <div class="inside_item_description">
                     <h4>INTRODUCING UBISOFT WINNIPEG</h4>
                     <div class="inside_item_description_text">The newest addition to the Ubisoft Canadian studios family is taking inclusion to the next level.
@@ -68,7 +104,7 @@
                     <img class="inside_item_img" src="img/inside/inside1_p.jpg"/>
                 </div>
             </div>
-            <div class="inside_item inside_item_active">
+            <div class="inside_item" style="left:40%;">
                 <div class="inside_item_description">
                     <h4>Say hello to SAM</h4>
                     <div class="inside_item_description_text">Need to master a zone, discover the latest version, or get answers on anything Ubisoft? Need to master a zone, discover the latest version, or get answers on anything Ubisoft? Type or speak a question for Sam and find what you need in seconds.
@@ -82,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="inside_item inside_item_active">
+            <div class="inside_item" style="left:80%;">
                 <div class="inside_item_description">
                     <h4>LIFE AT UBISOFT</h4>
                     <div class="inside_item_description_text">Wonder what it's like to work at Ubisoft? Get the inside scoop!
@@ -96,7 +132,7 @@
                 </div>
             </div>
 
-            <div class="inside_item inside_item_active">
+            <div class="inside_item" style="left:-40%;">
                 <div class="inside_item_description">
                     <h4>REINVENTING THE GAME</h4>
                     <div class="inside_item_description_text">AI is revolutionizing the way Ubisoft developers make better, more realistic games.
@@ -224,4 +260,5 @@
     </div>
 </div>
 </body>
+<script src="js/scroll.js"></script>
 </html>
