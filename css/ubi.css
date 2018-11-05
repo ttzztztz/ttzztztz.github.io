@@ -499,6 +499,11 @@ a{
     cursor: pointer;
     display: inline-block;
     margin:auto 32px;
+    opacity:0.75;
+    transition-duration:0.6s;
+}
+.roll_nav_items:hover{
+    opacity: 1 !important;
 }
 .roll_nav_items>img{
     width:auto;
@@ -533,6 +538,11 @@ a{
     bottom: 96px;
     cursor: pointer;
     z-index:3;
+    opacity:0.75;
+    transition-duration:0.6s;
+}
+.roll_left:hover , .roll_right:hover{
+    opacity: 1;
 }
 .roll_nav{
     list-style-type: none;
