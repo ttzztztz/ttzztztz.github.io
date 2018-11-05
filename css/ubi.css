@@ -453,13 +453,14 @@ a{
 }
 .roll_container{
     overflow: hidden;
+    position: relative;
 }
 .roll_container_list{
     list-style-type: none;
     position: relative;
     height:800px;
     background:white;
-    width:6000px;
+    width:30000px;
     transition: opacity .9s cubic-bezier(.33,.63,.65,.99);
     margin:0;
     padding:0;
@@ -494,15 +495,6 @@ a{
 .roll_content_active>h4{
     opacity: 1 !important;
 }
-.roll_nav{
-    list-style-type: none;
-    margin:0;
-    padding:0;
-    position: absolute;
-    width:100%;
-    text-align:center;
-    bottom: 196px;
-}
 .roll_nav_items{
     cursor: pointer;
     display: inline-block;
@@ -520,4 +512,36 @@ a{
 }
 .roll_nav_items_active{
     margin: auto 64px !important;
+}
+.roll_nav_strip{
+    height: 4px;
+    width: 158px;
+    opacity :0;
+    margin: 0 auto;
+}
+.roll_nav_strip_active{
+    opacity: 1 !important;
+}
+.roll_left{
+    left: 32px;
+}
+.roll_right{
+    right: 32px;
+}
+.roll_left , .roll_right{
+    position: absolute;
+    bottom: 96px;
+    cursor: pointer;
+    z-index:3;
+}
+.roll_nav{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    position: absolute;
+    width:100%;
+    text-align:center;
+    bottom: 96px;
+    max-height:144px;
+    z-index:2;
 }
