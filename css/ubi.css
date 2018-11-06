@@ -9,6 +9,7 @@ body{
 }
 img{
     vertical-align:middle;
+    object-fit: cover;
 }
 a{
     text-decoration:none;
@@ -466,7 +467,6 @@ a{
 .roll_container_list{
     list-style-type: none;
     position: relative;
-    height:800px;
     background:white;
     width:30000px;
     transition: opacity .9s cubic-bezier(.33,.63,.65,.99);
@@ -479,6 +479,7 @@ a{
 .roll{
     position: relative;
     width: 100vw;
+    height: 80vh;
     float:left;
 }
 .roll>img{
@@ -506,7 +507,7 @@ a{
 .roll_nav_items{
     cursor: pointer;
     display: inline-block;
-    margin:auto 32px;
+    margin:auto 3vw;
     opacity:0.75;
     transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
@@ -525,7 +526,7 @@ a{
 }
 .roll_nav_items_active{
     opacity:1 !important;
-    margin: auto 64px !important;
+    margin: auto 6vw !important;
 }
 .roll_nav_strip{
     height: 4px;
@@ -537,10 +538,10 @@ a{
     opacity: 1 !important;
 }
 .roll_left{
-    left: 32px;
+    left: 6vw;
 }
 .roll_right{
-    right: 32px;
+    right: 6vw;
 }
 .roll_left , .roll_right{
     position: absolute;
@@ -560,7 +561,7 @@ a{
     position: absolute;
     width:100%;
     text-align:center;
-    bottom: 96px;
+    bottom: 6vh;
     max-height:144px;
     z-index:2;
 }
@@ -607,7 +608,8 @@ a{
 }
 .news_container{
     display:block;
-    width:100%;
+    width:70%;
+    margin:0 15% 0 15%;
     text-align:center;
 }
 .news_nav_container_li_active{
@@ -625,7 +627,7 @@ a{
 .news_item{
     text-align:left;
     cursor:pointer;
-    width:40%;
+    width:35%;
     height: 180px;
     display:inline-block;
     margin:24px;

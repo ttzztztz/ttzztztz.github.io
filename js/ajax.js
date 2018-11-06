@@ -15,6 +15,7 @@ let ajax_cache = {
     3:"",
     4:""
 };
+let ajax_dom_count = 0;
 function ajax_post(url, data, fn){
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -61,48 +62,69 @@ function ajax_notice(_response){
     try {
         let response = JSON.parse(_response);
         let arr = response["hits"]["hits"];
-        for (let m = 0 , len = ajax_container.childNodes.length; m< len; m++) {
-            let node = ajax_container.childNodes[0];
-            ajax_container.removeChild(node);
-        }
+        let dom_count = ajax_dom_count;
         for(let i in arr){
             let title = arr[i]["_source"].title;
             let thumb = arr[i]["_source"].thumbnail;
             let createdAt = arr[i]["_source"].createdAt;
             let link = arr[i]["_source"].link;
             let dt = new Date(createdAt);
-            createdAt = ajax_month[dt.getMonth()]+" "+dt.getDay()+","+dt.getFullYear();
-            let content = delete_tags(arr[i]["_source"].content).substr(0,2000);
-            let item_div = document.createElement("div");
-            item_div.classList.add("news_item");
-            let item_left = document.createElement("div");
-            item_left.classList.add("news_item_left");
-            let item_img = document.createElement("img");
-            item_img.classList.add("news_item_img");
-            item_img.src = thumb;
-            let item_right = document.createElement("div");
-            item_right.classList.add("news_item_right");
-            let item_a = document.createElement("a");
-            item_a.target="_blank";
-            item_a.href = link;
-            let item_title = document.createElement("h3");
-            item_title.innerHTML = title;
-            let item_author = document.createElement("h4");
-            item_author.innerHTML = createdAt;
-            let item_content = document.createElement("h5");
-            item_content.innerHTML = content;
-            let item_shadow = document.createElement("div");
-            item_shadow.classList.add("news_item_shadow");
+            createdAt = ajax_month[dt.getMonth()] + " " + dt.getDay() + "," + dt.getFullYear();
+            let content = delete_tags(arr[i]["_source"].content).substr(0, 800);
+            if(i>=dom_count) {
+                let item_div = document.createElement("div");
+                item_div.classList.add("news_item");
+                let item_left = document.createElement("div");
+                item_left.classList.add("news_item_left");
+                let item_img = document.createElement("img");
+                item_img.dataset.ajax="1";
+                item_img.dataset.ajax_id = i;
+                item_img.classList.add("news_item_img");
+                item_img.src = thumb;
+                let item_right = document.createElement("div");
+                item_right.classList.add("news_item_right");
+                let item_a = document.createElement("a");
+                item_a.dataset.ajax="1";
+                item_a.dataset.ajax_id = i;
+                item_a.target = "_blank";
+                item_a.href = link;
+                let item_title = document.createElement("h3");
+                item_title.dataset.ajax="1";
+                item_title.dataset.ajax_id = i;
+                item_title.innerHTML = title;
+                let item_author = document.createElement("h4");
+                item_author.dataset.ajax="1";
+                item_author.dataset.ajax_id = i;
+                item_author.innerHTML = createdAt;
+                let item_content = document.createElement("h5");
+                item_content.dataset.ajax="1";
+                item_content.dataset.ajax_id = i;
+                item_content.innerHTML = content;
+                let item_shadow = document.createElement("div");
+                item_shadow.classList.add("news_item_shadow");
+                item_left.appendChild(item_img);
+                item_div.appendChild(item_left);
+                item_a.appendChild(item_title);
+                item_right.appendChild(item_a);
+                item_right.appendChild(item_shadow);
+                item_right.appendChild(item_author);
+                item_right.appendChild(item_content);
+                item_div.appendChild(item_right);
+                ajax_container.appendChild(item_div);
+                ajax_dom_count++;
+            } else {
+                let item_title = document.querySelector("h3[data-ajax='1'][data-ajax_id='"+i+"']");
+                let item_author = document.querySelector("h4[data-ajax='1'][data-ajax_id='"+i+"']");
+                let item_content = document.querySelector("h5[data-ajax='1'][data-ajax_id='"+i+"']");
+                let item_a = document.querySelector("a[data-ajax='1'][data-ajax_id='"+i+"']");
+                let item_img = document.querySelector("img[data-ajax='1'][data-ajax_id='"+i+"']");
+                item_title.innerHTML = title;
+                item_author.innerHTML = createdAt;
+                item_content.innerHTML = content;
+                item_a.href= link;
+                item_img.src = thumb;
+            }
 
-            item_left.appendChild(item_img);
-            item_div.appendChild(item_left);
-            item_a.appendChild(item_title);
-            item_right.appendChild(item_a);
-            item_right.appendChild(item_shadow);
-            item_right.appendChild(item_author);
-            item_right.appendChild(item_content);
-            item_div.appendChild(item_right);
-            ajax_container.appendChild(item_div);
         }
         ajax_doing = 0;
     } catch(Exception) {console.log(Exception);}

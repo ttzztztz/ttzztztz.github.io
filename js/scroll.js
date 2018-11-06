@@ -80,14 +80,15 @@ function scrollCircle(scroll_opt){
     scrolling = 1;
     if(scroll_opt === scroll_none) resetScroll();
     jroll_content_div_list[last_scrolled].classList.remove("roll_content_active");
-    jroll_container_list.style.transform = "translate(-"+ window.innerWidth * scroll +"px)";
+    jroll_container_list.style.transform = "translate(-"+ scroll*100.0 +"vw)";
     jroll_content_div_list[scroll].classList.add("roll_content_active");
     jroll_nav.classList.add("roll_nav_active");
-    let _move = scroll - last_scrolled;
-    jroll_nav.style.transform = "translate("+ (one_width * _move * -1) +"vw)";
+
+    jroll_nav.style.transform = "translate("+ (last_scrolled - scroll)*9 +"vw)";
+
     setTimeout(function(){
         jroll_nav.classList.remove("roll_nav_active");
-        jroll_nav.style.transform = "translate(0px)";
+        jroll_nav.style.transform = "translate(0vw)";
     },600);
     jroll_nav_list[4].dataset.id= scroll;
     jroll_nav_list[4].children[0].setAttribute("src",images_list[scroll].img);
