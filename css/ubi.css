@@ -507,22 +507,19 @@ a{
     display: inline-block;
     margin:auto 32px;
     opacity:0.75;
-    transition-duration:0.6s;
+    transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
 .roll_nav_items:hover{
     opacity: 1 !important;
 }
 .roll_nav_items>img{
-    width:auto;
-    height:96px;
+    width:9vw;
     vertical-align: bottom;
 }
 .hidden{
     display:none;
 }
 .roll_nav_items_active>img{
-    width:auto;
-    height:144px !important;
     vertical-align: bottom;
 }
 .roll_nav_items_active{
@@ -565,4 +562,7 @@ a{
     bottom: 96px;
     max-height:144px;
     z-index:2;
+}
+.roll_nav_active{
+    transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
