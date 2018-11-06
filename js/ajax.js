@@ -29,17 +29,22 @@ function ajax_post(url, data, fn){
 function setFocus(event){
     if(ajax_doing) return;
     let _focus_id = event.target.dataset.id;
+    let _active = event.target.dataset.active;
+    ajax_begin(_focus_id,_active);
+}
+function ajax_begin(_focus_id,_active){
     if(_focus_id === undefined || _focus_id == ajax_focus) return;
     let focus_last = document.querySelector(".news_nav_container_li[data-id='"+ajax_focus+"']");
     let focus_now = document.querySelector(".news_nav_container_li[data-id='"+_focus_id+"']");
-    ajax_focus = _focus_id;
-    focus_last.classList.remove("news_nav_container_li_active");
+    if(ajax_focus!= -1)
+        focus_last.classList.remove("news_nav_container_li_active");
     focus_now.classList.add("news_nav_container_li_active");
+    ajax_focus = _focus_id;
     let postdata = ajax_post_example;
     ajax_doing = 1;
     if(ajax_cache[_focus_id]=="") {
-        if (event.target.dataset.active != "all") {
-            postdata.keyword = event.target.dataset.active;
+        if (_active != "all") {
+            postdata.keyword = _active;
         } else {
             postdata = ajax_post_all;
         }
@@ -49,8 +54,8 @@ function setFocus(event){
         ajax_notice.call(this,ajax_cache[_focus_id]);
     }
 }
-function ajax_begin(){
-    
+function delete_tags(str){
+    return str.replace(/<[^>]+>/g,"");
 }
 function ajax_notice(_response){
     try {
@@ -64,9 +69,10 @@ function ajax_notice(_response){
             let title = arr[i]["_source"].title;
             let thumb = arr[i]["_source"].thumbnail;
             let createdAt = arr[i]["_source"].createdAt;
+            let link = arr[i]["_source"].link;
             let dt = new Date(createdAt);
             createdAt = ajax_month[dt.getMonth()]+" "+dt.getDay()+","+dt.getFullYear();
-            let content = arr[i]["_source"].content;
+            let content = delete_tags(arr[i]["_source"].content).substr(0,2000);
             let item_div = document.createElement("div");
             item_div.classList.add("news_item");
             let item_left = document.createElement("div");
@@ -76,15 +82,23 @@ function ajax_notice(_response){
             item_img.src = thumb;
             let item_right = document.createElement("div");
             item_right.classList.add("news_item_right");
+            let item_a = document.createElement("a");
+            item_a.target="_blank";
+            item_a.href = link;
             let item_title = document.createElement("h3");
             item_title.innerHTML = title;
             let item_author = document.createElement("h4");
             item_author.innerHTML = createdAt;
             let item_content = document.createElement("h5");
             item_content.innerHTML = content;
+            let item_shadow = document.createElement("div");
+            item_shadow.classList.add("news_item_shadow");
+
             item_left.appendChild(item_img);
             item_div.appendChild(item_left);
-            item_right.appendChild(item_title);
+            item_a.appendChild(item_title);
+            item_right.appendChild(item_a);
+            item_right.appendChild(item_shadow);
             item_right.appendChild(item_author);
             item_right.appendChild(item_content);
             item_div.appendChild(item_right);
@@ -94,3 +108,4 @@ function ajax_notice(_response){
     } catch(Exception) {console.log(Exception);}
 }
 ajax_nav_ul.addEventListener("click",setFocus);
+ajax_begin(0,"all");
