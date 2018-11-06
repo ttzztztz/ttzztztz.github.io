@@ -245,12 +245,19 @@ a{
     text-align:center;
     height:36px;
 }
-.download{
-    text-align:center;
-    margin:30px;
+@media screen and (min-width: 800px){
+    .download{
+        text-align:center;
+        margin:30px;
+    }
+    .download a{
+        color:#888787;
+    }
 }
-.download a{
-    color:#888787;
+@media screen and (max-width: 800px){
+    .download{
+        display:none;
+    }
 }
 .copyright{
     text-align:center;
@@ -510,12 +517,16 @@ a{
     height:96px;
     vertical-align: bottom;
 }
+.hidden{
+    display:none;
+}
 .roll_nav_items_active>img{
     width:auto;
     height:144px !important;
     vertical-align: bottom;
 }
 .roll_nav_items_active{
+    opacity:1 !important;
     margin: auto 64px !important;
 }
 .roll_nav_strip{
