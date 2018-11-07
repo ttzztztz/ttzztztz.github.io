@@ -56,8 +56,9 @@ function beginScroll(){
 }
 function ul_click(e){
     e.stopPropagation();
-    let dir = e.target.parentElement.dataset.dir || "l";
-    let move = e.target.parentElement.dataset.move || "1";
+    let dir = e.target.parentElement.dataset.dir || null;
+    let move = e.target.parentElement.dataset.move || null;
+    if(dir===null || move===null) return;
     scrollCircle(dir,move);
     if(!timer_cleared){
         clearInterval(timer);
@@ -88,7 +89,17 @@ function scrollCircle(dir,move){
     jroll_nav.classList.add("roll_nav_active");
     jroll_nav.style.transform = "translate("+ move * factor *17 +"vw)";
     jroll_nav_list[4].children[1].style.display ="none";
-
+    if(dir==="l"){
+        jroll_nav_list[1].classList.remove("hidden");
+        if(move==2){
+            jroll_nav_list[0].classList.remove("hidden");
+        }
+    } else if(dir==="r"){
+        jroll_nav_list[7].classList.remove("hidden");
+        if(move==2){
+            jroll_nav_list[8].classList.remove("hidden");
+        }
+    }
     setTimeout(function(){
         jroll_nav.classList.remove("roll_nav_active");
         jroll_nav.style.transform = "translate(0vw)";
@@ -111,14 +122,26 @@ function scrollCircle(dir,move){
             jroll_nav_list[_m].dataset.id = temp;
             jroll_nav_list[_m].children[0].setAttribute("src",images_list[temp].img);
         }
+        if(dir==="l"){
+            jroll_nav_list[1].classList.add("hidden");
+            if(move==2){
+                jroll_nav_list[0].classList.add("hidden");
+            }
+        } else if(dir==="r"){
+            jroll_nav_list[7].classList.add("hidden");
+            if(move==2){
+                jroll_nav_list[8].classList.add("hidden");
+            }
+        }
         last_scrolled = scroll;
         scrolling = 0;
     },600);
 }
 function controls_click(e){
     e.stopPropagation();
-    let dir = e.target.parentElement.dataset.dir || "l";
-    let move = e.target.parentElement.dataset.move || "1";
+    let dir = e.target.parentElement.dataset.dir || null;
+    let move = e.target.parentElement.dataset.move || null;
+    if(dir===null || move===null) return;
     scrollCircle(dir,move);
     if(!timer_cleared){
         clearInterval(timer);

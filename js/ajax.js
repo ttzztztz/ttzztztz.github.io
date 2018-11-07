@@ -5,7 +5,7 @@ const ajax_month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
 let ajax_doing = 0;
 let ajax_nav_ul = document.getElementById("news_nav_ul");
 let ajax_container = document.getElementById("news_container");
-
+let ajax_mobile_nav = document.getElementById("news_nav_mobile");
 let ajax_all = document.querySelector("li.news_nav_container_li_active[data-id='0']");
 let ajax_focus = -1;
 let ajax_cache = ["","","","",""];
@@ -22,14 +22,22 @@ function ajax_post(url, data, fn , _focus_id){
     };
     xhr.send(data);
 }
+function setFocusMobile(event){
+    let _focus_id = event.target.value;
+    let _dom = document.querySelector("li.news_nav_container_li[data-id='"+_focus_id+"']");
+    let _active = _dom.dataset.active;
+    ajax_begin(_focus_id,_active);
+}
 function setFocus(event){
     if(ajax_doing) return;
     let _focus_id = event.target.dataset.id;
     let _active = event.target.dataset.active;
     ajax_begin(_focus_id,_active);
+    ajax_mobile_nav.value = _focus_id;
 }
 function ajax_begin(_focus_id,_active){
     if(_focus_id === undefined || _focus_id == ajax_focus) return;
+    ajax_doing = 1;
     let focus_last = document.querySelector(".news_nav_container_li[data-id='"+ajax_focus+"']");
     let focus_now = document.querySelector(".news_nav_container_li[data-id='"+_focus_id+"']");
     if(ajax_focus!= -1)
@@ -38,7 +46,6 @@ function ajax_begin(_focus_id,_active){
     ajax_focus = _focus_id;
     ajax_container.style.opacity = 0.6;
     let postdata = ajax_post_example;
-    ajax_doing = 1;
     if(ajax_cache[_focus_id]=="" || ajax_cache[_focus_id]===undefined) {
         if (_active != "all") {
             postdata.keyword = _active;
@@ -133,4 +140,5 @@ function ajax_notice(_response){
     } catch(Exception) {console.log(Exception);}
 }
 ajax_nav_ul.addEventListener("click",setFocus);
+ajax_mobile_nav.addEventListener("change",setFocusMobile);
 ajax_begin(0,"all");

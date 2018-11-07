@@ -37,13 +37,13 @@
     </div>
     <div class="roll_container">
         <div id="roll_controls" class="roll_controls">
-            <div id="roll_left" class="roll_left" data-dir="r" data-move="1">
-                <img src="img/back.png" data-opt="left"/>
-            </div>
-            <div id="roll_go" class="roll_right" data-dir="l" data-move="1">
-                <img src="img/go.png" data-opt="right"/>
-            </div>
             <div class="roll_nav_container">
+                <div id="roll_left" class="roll_left" data-dir="r" data-move="1">
+                    <img src="img/back.png" data-opt="left"/>
+                </div>
+                <div id="roll_go" class="roll_right" data-dir="l" data-move="1">
+                    <img src="img/go.png" data-opt="right"/>
+                </div>
                 <ul class="roll_nav roll_nav_active" id="roll_nav">
                     <li class="roll_nav_items hidden" data-id="7" data-rank="0" data-dir="l" data-move="4">
                         <img src="img/first/rainbow.png"/>
@@ -143,7 +143,6 @@
             </li>
         </ul>
     </div>
-
     <div class="trending">
         <div class="trending_before">
             <p>TRENDING TRAILERS</p>
@@ -158,10 +157,16 @@
         <div class="trending_after">
         </div>
     </div>
-
     <div class="news">
         <h4>LATEST NEWS</h4>
         <div class="news_nav_container" id="news_nav_container">
+            <select id="news_nav_mobile" class="news_nav_mobile">
+                <option value="0">ALL NEWS</option>
+                <option value="1">ASSASSIN'S CREED</option>
+                <option value="2">FOR HONOR</option>
+                <option value="3">THE DIVISION</option>
+                <option value="4">RAINBOW SIX</option>
+            </select>
             <ul id="news_nav_ul">
                 <li class="news_nav_container_li news_nav_container_li_active" data-active="all" data-id="0">ALL NEWS</li>
                 <li class="news_nav_container_li" data-active="assassins-creed-odyssey" data-id="1">ASSASSIN'S CREED</li>
@@ -177,7 +182,6 @@
             <a href="https://news.ubisoft.com/" target="_blank"><button class="function_btn">ALL NEWS</button></a>
         </div>
     </div>
-
     <div class="inside">
         <div class="inside_before">
             <p>INSIDE UBISOFT</p>
@@ -243,7 +247,6 @@
         <div class="inside_after">
         </div>
     </div>
-
     <div class="join_us">
         <h2 class="join_title">JOIN UBISOFT CLUB</h2>
         <h4 class="join_sub">Get more from your games</h4>
