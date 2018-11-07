@@ -8,7 +8,6 @@ body{
     background: #1d1e22;
 }
 img{
-    vertical-align:middle;
     object-fit: cover;
 }
 a{
@@ -458,46 +457,57 @@ a{
     padding-top:48px;
 }
 .inside_before{
-    background:#a1000ff;
+    background:#a800ff;
     color:white;
-    width:55%;
     height:100px;
     margin:0 auto 0 auto;
 }
 .inside_after{
-    background:#a1000ff;
+    background:#a800ff;
     color:white;
-    width:55%;
     height:75px;
     margin:0 auto 0 auto;
 }
 .trending_before{
     background: #018aff;
     color:white;
-    width:55%;
     height:100px;
     margin:0 auto 0 auto;
 }
 .trending_after{
     background: #018aff;
     color:white;
-    width:55%;
     height:75px;
     margin:0 auto 0 auto;
+}
+@media screen and (min-width:1000px){
+    .inside_before, .inside_after , .trending_before, .trending_after{
+        width:55%;
+    }
+    .inside_before>p,.trending_before>p{
+        font-size:40px;
+        letter-spacing: 3px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .inside_before, .inside_after , .trending_before, .trending_after{
+        width:85%;
+    }
+    .inside_before>p,.trending_before>p{
+        font-size:20px;
+        letter-spacing: 0.5px;
+    }
 }
 .trending{
     background:white;
 }
 .inside_before>p,.trending_before>p{
     font-weight:700;
-    font-size:40px;
     text-transform: uppercase;
     text-align:center;
     margin-top:0;
     padding-top: 30px;
-    letter-spacing: 3px;
 }
-
 .inside_item_img{
     display:block;
     width:100%;
@@ -638,16 +648,17 @@ a{
 .roll_nav_items{
     cursor: pointer;
     display: inline-block;
-    margin:auto 3vw;
+    margin:0 0;
     opacity:0.75;
+    width: 17vw;
     transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
 .roll_nav_items:hover{
     opacity: 1 !important;
 }
 .roll_nav_items>img{
-    width:9vw;
     vertical-align: bottom;
+    width: 75%;
 }
 .hidden{
     display:none;
@@ -657,7 +668,6 @@ a{
 }
 .roll_nav_items_active{
     opacity:1 !important;
-    margin: auto 6vw !important;
 }
 .roll_nav_strip{
     height: 4px;

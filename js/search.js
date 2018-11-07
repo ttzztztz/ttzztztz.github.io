@@ -2,6 +2,7 @@ let jsearch_box = document.getElementById("pc_nav_search_box");
 let jsearch_div = document.getElementById("pc_nav_search");
 let jsearch_input = document.getElementById("pc_nav_search_input");
 let jsearch_icon = document.getElementById("search_icon");
+let jsearch_container = document.getElementById("pc_nav_search_btn_container");
 let search_status = 0;
 
 const search_default_icon = "img/search.png";
@@ -20,4 +21,4 @@ function search_btn_click(){
         jsearch_icon.src = search_default_icon;
     }
 }
-jsearch_div.addEventListener("click",search_btn_click);
+jsearch_container.addEventListener("click",search_btn_click);
