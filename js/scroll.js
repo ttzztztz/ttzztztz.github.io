@@ -1,6 +1,7 @@
 let scroll=2;
 let last_scrolled = 2;
 let timer;
+let timer_cleared = 0;
 let jroll_container_list = document.querySelector("#roll_container_list");
 let jroll_list = document.getElementsByClassName("roll");
 let jroll_content_div_list = document.getElementsByClassName("roll_content");
@@ -51,13 +52,17 @@ let images_list = [
     }
 ];
 function beginScroll(){
-    timer = setInterval(function(){scrollCircle("l",1);},8000);
+    timer = setInterval(function(){scrollCircle("r",1);},8000);
 }
 function ul_click(e){
+    e.stopPropagation();
     let dir = e.target.parentElement.dataset.dir || "l";
     let move = e.target.parentElement.dataset.move || "1";
     scrollCircle(dir,move);
-    e.stopPropagation();
+    if(!timer_cleared){
+        clearInterval(timer);
+        timer_cleared = 1;
+    }
 }
 function scrollCircle(dir,move){
     let factor = 1;
@@ -106,16 +111,19 @@ function scrollCircle(dir,move){
             jroll_nav_list[_m].dataset.id = temp;
             jroll_nav_list[_m].children[0].setAttribute("src",images_list[temp].img);
         }
-
         last_scrolled = scroll;
         scrolling = 0;
     },600);
 }
 function controls_click(e){
+    e.stopPropagation();
     let dir = e.target.parentElement.dataset.dir || "l";
     let move = e.target.parentElement.dataset.move || "1";
     scrollCircle(dir,move);
-    e.stopPropagation();
+    if(!timer_cleared){
+        clearInterval(timer);
+        timer_cleared = 1;
+    }
 }
 beginScroll();
 jul.addEventListener("click",ul_click);
