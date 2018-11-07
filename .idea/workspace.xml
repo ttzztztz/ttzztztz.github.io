@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa39ef06-3095-4f8b-80f8-3b635a1ef606" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/ubi.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/ubi.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scroll.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +17,7 @@
     <session id="-1176638457">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="3" />
@@ -27,43 +27,43 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="29" />
+          <entry key="css" value="32" />
           <entry key="html" value="11" />
-          <entry key="js" value="24" />
+          <entry key="js" value="26" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="29" />
+          <entry key="CSS" value="32" />
           <entry key="HTML" value="11" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="24" />
+          <entry key="JavaScript" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="15878" />
-          <entry key="html" value="5514" />
-          <entry key="js" value="8930" />
+          <entry key="css" value="16239" />
+          <entry key="html" value="5883" />
+          <entry key="js" value="8932" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="15878" />
-          <entry key="HTML" value="5514" />
-          <entry key="JavaScript" value="8930" />
+          <entry key="CSS" value="16239" />
+          <entry key="HTML" value="5883" />
+          <entry key="JavaScript" value="8932" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+            <state relative-caret-position="324">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -91,20 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/ubi.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="694" column="12" lean-forward="true" selection-start-line="694" selection-start-column="12" selection-end-line="694" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/scroll.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
+            <state relative-caret-position="518">
+              <caret line="979" column="20" selection-start-line="979" selection-start-column="20" selection-end-line="979" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -113,12 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pc_nav_search_input</find>
-      <find>t</find>
-      <find>trending_before</find>
-      <find>trending_before&gt;p</find>
-      <find>console.log</find>
-      <find>data-rank</find>
       <find>last_scrolled</find>
       <find>scroll</find>
       <find>roll_nav_strip</find>
@@ -133,7 +118,6 @@
       <find>inside{</find>
       <find>join_us</find>
       <find>.inside_item_button:hover</find>
-      <find>roll_nav_items</find>
       <find>ul</find>
       <find>bottom:0</find>
       <find>item</find>
@@ -143,6 +127,13 @@
       <find>roll_controls</find>
       <find>roll_left</find>
       <find>roll_nav_container</find>
+      <find>roll_nav_items</find>
+      <find>pc_nav_search_box</find>
+      <find>_right</find>
+      <find>pc_nav_search</find>
+      <find>pc_nav_search_btn_container</find>
+      <find>.pc_nav_search{</find>
+      <find>pc_nav_search{</find>
     </findStrings>
     <replaceStrings>
       <replace>1000</replace>
@@ -159,8 +150,8 @@
         <option value="$PROJECT_DIR$/js/lazyload.js" />
         <option value="$PROJECT_DIR$/js/ajax.js" />
         <option value="$PROJECT_DIR$/js/scroll.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/ubi.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -171,7 +162,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="210" />
+    <option name="x" value="616" />
     <option name="y" value="119" />
     <option name="width" value="1300" />
     <option name="height" value="809" />
@@ -252,16 +243,15 @@
       <workItem from="1541478485796" duration="3213000" />
       <workItem from="1541499595038" duration="15038000" />
       <workItem from="1541564561281" duration="3977000" />
-      <workItem from="1541586455789" duration="12948000" />
+      <workItem from="1541586455789" duration="14679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81425000" />
+    <option name="totallyTimeSpent" value="83156000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="253" y="200" width="1300" height="809" extended-state="0" />
-    <editor active="true" />
+    <frame x="616" y="119" width="1300" height="809" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -308,24 +298,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/scroll.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
+          <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/ubi.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="979" column="20" selection-start-line="979" selection-start-column="20" selection-end-line="979" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        <state relative-caret-position="324">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -349,13 +346,6 @@
             <element signature="n#style#0;n#h4#1;n#div#0;n#li#8;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/ubi.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="694" column="12" lean-forward="true" selection-start-line="694" selection-start-column="12" selection-end-line="694" selection-end-column="12" />
         </state>
       </provider>
     </entry>
