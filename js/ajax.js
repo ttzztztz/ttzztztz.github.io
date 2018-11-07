@@ -8,20 +8,15 @@ let ajax_container = document.getElementById("news_container");
 
 let ajax_all = document.querySelector("li.news_nav_container_li_active[data-id='0']");
 let ajax_focus = -1;
-let ajax_cache = {
-    0:"",
-    1:"",
-    2:"",
-    3:"",
-    4:""
-};
+let ajax_cache = ["","","","",""];
 let ajax_dom_count = 0;
-function ajax_post(url, data, fn){
+function ajax_post(url, data, fn , _focus_id){
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
+            ajax_cache[_focus_id] = xhr.responseText;
             fn.call(this, xhr.responseText);
         }
     };
@@ -41,15 +36,16 @@ function ajax_begin(_focus_id,_active){
         focus_last.classList.remove("news_nav_container_li_active");
     focus_now.classList.add("news_nav_container_li_active");
     ajax_focus = _focus_id;
+    ajax_container.style.opacity = 0.6;
     let postdata = ajax_post_example;
     ajax_doing = 1;
-    if(ajax_cache[_focus_id]=="") {
+    if(ajax_cache[_focus_id]=="" || ajax_cache[_focus_id]===undefined) {
         if (_active != "all") {
             postdata.keyword = _active;
         } else {
             postdata = ajax_post_all;
         }
-        ajax_post("https://search.ubisoft.com/api/v2/search", JSON.stringify(postdata), ajax_notice);
+        ajax_post("https://search.ubisoft.com/api/v2/search", JSON.stringify(postdata), ajax_notice,_focus_id);
     }
     else {
         ajax_notice.call(this,ajax_cache[_focus_id]);
@@ -63,6 +59,12 @@ function ajax_notice(_response){
         let response = JSON.parse(_response);
         let arr = response["hits"]["hits"];
         let dom_count = ajax_dom_count;
+        if(dom_count >= arr.length){
+            for(let q= dom_count ; q<arr.length;q++){
+                let node = ajax_container.childNodes[q];
+                ajax_container.removeChild(node);
+            }
+        }
         for(let i in arr){
             let title = arr[i]["_source"].title;
             let thumb = arr[i]["_source"].thumbnail;
@@ -126,6 +128,7 @@ function ajax_notice(_response){
             }
 
         }
+        ajax_container.style.opacity = 1;
         ajax_doing = 0;
     } catch(Exception) {console.log(Exception);}
 }
