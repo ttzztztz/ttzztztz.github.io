@@ -11,7 +11,6 @@ let roll_controls = document.getElementById("roll_controls");
 let jroll_nav = document.getElementById("roll_nav");
 let elements_count = jroll_list.length;
 let scrolling = 0;
-
 let images_list = [
     {
         "id":0,

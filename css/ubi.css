@@ -564,6 +564,9 @@ a{
     align-items: center;
     list-style-type:none;
 }
+.inside_transition{
+    transition: all .9s cubic-bezier(.33,.63,.65,.99);
+}
 .inside_container>ul>li{
     display:block;
     margin:0;
