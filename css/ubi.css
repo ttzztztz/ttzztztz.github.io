@@ -14,7 +14,7 @@ a{
     text-decoration:none;
 }
 .pc_nav{
-    width:100%;
+    width:100vw;
     height:50px;
     display:block;
     position:relative;
@@ -50,6 +50,9 @@ a{
     filter:opacity(1);
 }
 @media screen and (min-width:1000px){
+    .mobile_nav_menu_container{
+        display:none;
+    }
     .pc_nav_search{
         display:inline-block;
         position:absolute;
@@ -86,6 +89,15 @@ a{
     }
 }
 @media screen and (max-width:1000px){
+    .mobile_nav_menu_container{
+        position: absolute;
+        display:inline-block;
+        width: 24px;
+        height: 18px;
+        left: 24px;
+        top: 18px;
+        cursor: hand;
+    }
     .pc_nav_search{
         display:none;
     }
@@ -779,8 +791,8 @@ a{
 @media screen and (min-width:1000px){
     .news_container{
         display:block;
-        width:70%;
-        margin:0 15% 0 15%;
+        width:85%;
+        margin:0 7.5% 0 7.5%;
         text-align:center;
     }
     .news_item{
@@ -942,13 +954,24 @@ a{
     margin:24px auto;
 }
 .mobile_nav_panel{
+    opacity: 0;
     transition: all 1.2s cubic-bezier(.33,.63,.65,.99);
-    height: 100vh;
-    width: 100vw;
-    z-index:10;
+    min-height: 100%;
+    position: fixed;
+    width: 0;
+    z-index:-10;
     background:#1d1e22;
     margin:0;
-    padding: 50px 0 0;
+    padding: 0;
+}
+.mobile_nav_panel_active{
+    width: 100vw !important;
+    opacity:1 !important;
+    z-index:10;
+}
+.mobile_nav_links{
+    padding-left: 0;
+    list-style-type: none;
 }
 .mobile_nav_links_item{
     height: 50px;
@@ -959,12 +982,17 @@ a{
     border-bottom: none !important;
 }
 .mobile_nav_links_item>a{
+    display: block;
+    height: 100%;
     color:#ccc;
     font-family: UbisoftSans,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-size: 18px;
     letter-spacing: .01em;
+    vertical-align: middle;
+    padding-top: 15px;
+    padding-left: 12px;
 }
-.mobile_nav_links_item>a:hover{
+.mobile_nav_links_item:hover{
     background: #494949;
 }
 .mobile_nav_search_input{
@@ -978,4 +1006,51 @@ a{
     letter-spacing: .01em;
     font-weight: 400;
     font-size: 20px;
+    width:100%;
+    background: transparent;
+    color: #ccc;
+}
+.mobile_nav_search{
+    margin: 0 80px;
+    position: relative;
+}
+.mobile_nav_search_btn_img{
+    width: 100%;
+    height: 100%;
+}
+.mobile_nav_search_btn{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 24px;
+    top: 48px;
+    display: inline-block;
+}
+.mobile_nav_close{
+    cursor:pointer;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+.mobile_nav_close:before{
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    width: 22px;
+    height: 3px;
+    background: #666;
+}
+.mobile_nav_close:after{
+    transform: rotate(-45deg);
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    width: 22px;
+    height: 3px;
+    background: #666;
 }

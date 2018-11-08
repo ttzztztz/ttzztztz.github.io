@@ -4,7 +4,9 @@ let jsearch_input = document.getElementById("pc_nav_search_input");
 let jsearch_icon = document.getElementById("search_icon");
 let jsearch_container = document.getElementById("pc_nav_search_btn_container");
 let search_status = 0;
-
+let jmobile_nav_panel = document.getElementById("mobile_nav_panel");
+let jmobile_nav_close = document.getElementById("mobile_nav_close");
+let jmobile_menu_btn = document.getElementById("mobile_nav_menu_container");
 const search_default_icon = "img/search.png";
 const search_focus_icon = "img/search_focus.png";
 function search_btn_click(){
@@ -21,4 +23,12 @@ function search_btn_click(){
         jsearch_icon.src = search_default_icon;
     }
 }
+function mobile_menu_btn_click(){
+    jmobile_nav_panel.classList.add("mobile_nav_panel_active");
+}
+function mobile_menu_btn_close(){
+    jmobile_nav_panel.classList.remove("mobile_nav_panel_active");
+}
 jsearch_container.addEventListener("click",search_btn_click);
+jmobile_menu_btn.addEventListener("click",mobile_menu_btn_click);
+jmobile_nav_close.addEventListener("click",mobile_menu_btn_close);

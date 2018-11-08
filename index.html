@@ -14,8 +14,8 @@
 <body>
 <div id="root">
     <div id="mobile_nav_panel" class="mobile_nav_panel">
-
-
+        <div class="mobile_nav_close" id="mobile_nav_close">
+        </div>
         <ul class="mobile_nav_links">
             <li class="mobile_nav_links_item"><a href="https://www.ubisoft.com/en-us/games">More Games</a></li>
             <li class="mobile_nav_links_item"><a href="https://store.ubi.com/us">Store</a></li>
@@ -25,10 +25,15 @@
         </ul>
         <div class="mobile_nav_search" id="mobile_nav_search">
             <input class="mobile_nav_search_input" placeholder="Search" value=""/>
-
+            <div class="mobile_nav_search_btn">
+                <img src="img/search.png" class="mobile_nav_search_btn_img"/>
+            </div>
         </div>
     </div>
     <div id="pc_nav" class="pc_nav">
+        <div class="mobile_nav_menu_container" id="mobile_nav_menu_container">
+            <img class="mobile_nav_menu_img" src="img/menu.png"/>
+        </div>
         <div class="pc_nav_logo_container">
             <a class="pc_nav_logo_link" href="https://www.ubisoft.com/">
             <img src="img/ubi_logo.png" class="pc_nav_logo pc_nav_item"/>
