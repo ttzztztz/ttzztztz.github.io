@@ -118,7 +118,6 @@ function scrollCircle(dir,move){
         jroll_nav_list[4].children[0].setAttribute("src",images_list[scroll].img);
         jroll_nav_list[4].children[1].style.display ="block";
         jroll_nav_list[4].children[1].style.backgroundColor = images_list[scroll].color;
-
         for(let _m=0;_m<=8;_m++){
             if(_m===4) continue;
             let temp = 0;
@@ -134,7 +133,6 @@ function scrollCircle(dir,move){
             jroll_nav_list[_m].dataset.id = temp;
             jroll_nav_list[_m].children[0].setAttribute("src",images_list[temp].img);
         }
-
         last_scrolled = scroll;
         scrolling = 0;
     },600);
