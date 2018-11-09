@@ -173,7 +173,7 @@ a{
     .join_card_shadow{
         width:100%;
         position: absolute;
-        bottom:-53px;
+        bottom:-17vh;
     }
     .join_card_shadow img{
         position:relative;

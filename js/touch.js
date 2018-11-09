@@ -28,10 +28,12 @@ function touch_move_from_right_to_left(){
     move_element.style.left = touch_init_right+"vw";
     touch_last_moveX = touch_moveX;
     touch_left_opt ++;
+    let _temp = [0,1,2,3];
     for(let _i=0;_i<touch_inside_num-1;_i++){
-        touch_elements[_i] = touch_elements[_i + 1];
+        _temp[_i] = touch_elements[_i + 1];
     }
-    touch_elements[touch_inside_num - 1] = touch_most_right_child;
+    _temp[touch_inside_num - 1] = touch_most_right_child;
+    touch_elements = _temp;
 }
 function touch_move_from_left_to_right(){
     touch_most_left_child = touch_most_right_child;
@@ -43,10 +45,13 @@ function touch_move_from_left_to_right(){
     move_element.style.left = touch_init_left+"vw";
     touch_last_moveX = touch_moveX;
     touch_right_opt ++;
+
+    let _temp = [0,1,2,3];
     for(let _i=1;_i<touch_inside_num;_i++){
-        touch_elements[_i] = touch_elements[_i - 1];
+        _temp[_i] = touch_elements[_i - 1];
     }
-    touch_elements[0] = touch_most_left_child;
+    _temp[0] = touch_most_left_child;
+    touch_elements = _temp;
 }
 function touch_move(event) {
     let touch = event.touches[0];
@@ -63,8 +68,13 @@ function touch_move(event) {
 }
 function touch_end(event){
     touch_moveX = touch_startX - touch_endX;
+    if(Math.abs(touch_px_to_vw(touch_moveX)) <= 8){
+        jtouch_inside.style.transform = "translateX("+ touch_transform +"vw)";
+        jtouch_inside.classList.add("inside_transition");
+        return;
+    }
     let transform_base = 50 * (touch_left_opt - touch_right_opt) - 50;
-    let arr_diff_min = 99999,arr_diff_index = 0;
+    let arr_diff_min = 99999 , arr_diff_index = 0;
     for(let i=0; i < touch_inside_num;i++){
         let result = Math.abs( (50 * i) - touch_px_to_vw(touch_moveX) );
         if(result < arr_diff_min){
@@ -78,6 +88,7 @@ function touch_end(event){
     touch_transform = (transform_base + 50 * arr_diff_index)*-1;
     jtouch_inside.style.transform = "translateX("+ touch_transform +"vw)";
     jtouch_inside.classList.add("inside_transition");
+
     if(touch_now_hit != touch_elements[arr_diff_index]){
         let old_element = document.querySelector("li[data-opt='inside'][data-rank='"+touch_now_hit+"']");
         let new_element = document.querySelector("li[data-opt='inside'][data-rank='"+touch_elements[arr_diff_index]+"']");
@@ -86,7 +97,7 @@ function touch_end(event){
         touch_now_hit = touch_elements[arr_diff_index];
     }
     if(arr_diff_index==3){
-        touch_move_from_right_to_left();;
+        touch_move_from_right_to_left();
     } else if(arr_diff_index ==0){
         touch_move_from_left_to_right();
     }
