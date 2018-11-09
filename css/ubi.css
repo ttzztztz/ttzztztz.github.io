@@ -534,14 +534,16 @@ a{
 .inside_img_container{
     display:block;
     width:50vw;
+    position:relative;
 }
 .inside_container>ul{
     margin:0;
     padding:0;
     display:flex;
     width:200vw;
-    left:-25vw;
-    position:absolute;
+    margin-left: -25vw;
+    margin-top: -4px;
+    position:relative;
     justify-content: center;
     align-items: center;
     list-style-type:none;
@@ -551,6 +553,7 @@ a{
 }
 .inside_container>ul>li{
     display:block;
+    position:absolute;
     margin:0;
     padding:0;
 }
