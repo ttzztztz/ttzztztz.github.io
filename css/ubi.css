@@ -494,24 +494,6 @@ a{
     height:75px;
     margin:0 auto 0 auto;
 }
-@media screen and (min-width:1000px){
-    .inside_before, .inside_after , .trending_before, .trending_after{
-        width:55%;
-    }
-    .inside_before>p,.trending_before>p{
-        font-size:40px;
-        letter-spacing: 3px;
-    }
-}
-@media screen and (max-width:1000px) {
-    .inside_before, .inside_after , .trending_before, .trending_after{
-        width:85%;
-    }
-    .inside_before>p,.trending_before>p{
-        font-size:20px;
-        letter-spacing: 0.5px;
-    }
-}
 .trending{
     background:white;
     padding-top:96px;
@@ -601,19 +583,55 @@ a{
     margin:0 auto 0 auto;
     letter-spacing: 3px;
 }
+.inside_item_active .inside_item_button{
+    display:inline-block;
+}
+.inside_item_active .inside_item_description{
+    opacity: 1 !important;
+}
 .inside_item_description{
     position:absolute;
-    bottom:25%;
+    bottom:5%;
     z-index:2;
+    opacity: 0.75;
     width: 100%;
 }
+@media screen and (min-width:1000px){
+    .inside_before, .inside_after , .trending_before, .trending_after{
+        width:55%;
+    }
+    .inside_before>p,.trending_before>p{
+        font-size:40px;
+        letter-spacing: 3px;
+    }
+    .inside_item_description>h4{
+        font-size:30px;
+    }
+    .inside_item_button{
+        font-size:20px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .inside_before, .inside_after , .trending_before, .trending_after{
+        width:85%;
+    }
+    .inside_before>p,.trending_before>p{
+        font-size:20px;
+        letter-spacing: 0.5px;
+    }
+    .inside_item_description>h4{
+        font-size:22px;
+    }
+    .inside_item_button{
+        font-size:16px;
+    }
+}
 .inside_item_description>h4{
+    font-weight: 700;
     text-transform: uppercase;
     color:white;
     text-shadow: 0 7px 51px rgba(0,0,0,.8);
     text-align:center;
-    font-weight: 700;
-    font-size:30px;
     margin-bottom:12px;
 }
 .inside_item_description_text{
@@ -626,7 +644,6 @@ a{
 .inside_item_button{
     margin-top:12px;
     border-radius: 20px;
-    font-size:20px;
     padding:6px 12px;
     cursor:pointer;
     color:white;
@@ -634,7 +651,7 @@ a{
     font-weight:700;
     border:1px white solid;
     z-index:2;
-    display:inline-block;
+    display:none;
 }
 .inside_item_button:hover{
     color: #a800ff;

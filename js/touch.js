@@ -9,14 +9,20 @@ function decidePicture(_touch_transform){
     let hit = touch_now_hit;
     if(Math.abs(_touch_transform) > 5){
         if(_touch_transform >0) {
-            if (_touch_transform >= 125) hit -= 3;
+            if (_touch_transform >= 150) hit -= 3;
             else if (_touch_transform >= 60) hit -= 2;
             else if (_touch_transform >= 5) hit -= 1;
         }
         if(_touch_transform < 0){
-            if (_touch_transform <= -125) hit = parseInt(hit) + 3;
+            if (_touch_transform <= -150) hit = parseInt(hit) + 3;
             else if (_touch_transform <= -60) hit =parseInt(hit) + 2;
             else if (_touch_transform <= -5) hit = parseInt(hit) + 1;
+        }
+        if(touch_now_hit != hit){
+            let old_element = document.querySelector("li[data-opt='inside'][data-rank='"+touch_now_hit+"']");
+            let new_element = document.querySelector("li[data-opt='inside'][data-rank='"+hit+"']");
+            old_element.children[0].classList.remove("inside_item_active");
+            new_element.children[0].classList.add("inside_item_active");
         }
         if(hit>=touch_inside_translate.length) hit = hit - touch_inside_translate.length;
         if(hit< 0) hit = parseInt(hit) + parseInt(touch_inside_translate.length);
