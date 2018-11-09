@@ -6,6 +6,7 @@ let ajax_doing = 0;
 let ajax_nav_ul = document.getElementById("news_nav_ul");
 let ajax_container = document.getElementById("news_container");
 let ajax_mobile_nav = document.getElementById("news_nav_mobile");
+
 let ajax_all = document.querySelector("li.news_nav_container_li_active[data-id='0']");
 let ajax_focus = -1;
 let ajax_cache = ["","","","",""];
