@@ -6,9 +6,12 @@ body{
     font-family: UbisoftSans,Helvetica Neue,Helvetica,Arial,sans-serif;
     margin:0;
     background: #1d1e22;
+    width:100%;
+    overflow-x:hidden;
 }
 .root{
     width:100%;
+    overflow-x:hidden;
 }
 img{
     object-fit: cover;
