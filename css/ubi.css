@@ -7,6 +7,9 @@ body{
     margin:0;
     background: #1d1e22;
 }
+.root{
+    width:100%;
+}
 img{
     object-fit: cover;
 }
