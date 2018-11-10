@@ -172,7 +172,6 @@ a{
     }
     .join_card_shadow{
         width:100%;
-        position: absolute;
         bottom:-17vh;
     }
     .join_card_shadow img{
@@ -1136,6 +1135,9 @@ a{
     top:0;
     position:absolute;
     display:flex;
+}
+.more_games_container_active{
+    transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
 .more_games{
     width: 100%;

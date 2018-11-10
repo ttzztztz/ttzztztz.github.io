@@ -512,6 +512,8 @@ let more_container1 = document.getElementById("more_container1") , more_containe
 let touch_more_startX=0,touch_more_endX=0,touch_more_transform=0;
 let mouse_more_on = 0;
 function touch_more_start(event){
+    more_container1.classList.remove("more_games_container_active");
+    more_container2.classList.remove("more_games_container_active");
     let touch = event.touches[0];
     touch_more_startX = touch.clientX;
     touch_more_endX = touch.clientX;
@@ -524,12 +526,14 @@ function touch_more_move(event){
 }
 function touch_more_end(event){
     let temp = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    more_container1.classList.add("more_games_container_active");
+    more_container2.classList.add("more_games_container_active");
     let flag = 0;
     if(temp >0){
         touch_more_transform = 0;
         flag = 1;
-    } else if(temp <=-11950){
-        touch_more_transform = -11950;
+    } else if(temp <=-11520){
+        touch_more_transform = -11520;
         flag= 1;
     } else {
         touch_more_transform = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
@@ -541,6 +545,8 @@ function touch_more_end(event){
 }
 function mouse_more_start(event){
     event.preventDefault();
+    more_container1.classList.remove("more_games_container_active");
+    more_container2.classList.remove("more_games_container_active");
     mouse_more_on = 1;
     touch_more_startX = event.clientX;
     touch_more_endX = event.clientX;
@@ -555,6 +561,8 @@ function mouse_more_move(event){
 function mouse_more_end(event){
     event.preventDefault();
     if(!mouse_more_on) return false;
+    more_container1.classList.add("more_games_container_active");
+    more_container2.classList.add("more_games_container_active");
     touch_more_end(event);
     mouse_more_on = 0;
 }

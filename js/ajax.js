@@ -71,6 +71,7 @@ function ajax_notice(_response){
             for(let q= dom_count ; q<arr.length;q++){
                 let node = ajax_container.childNodes[q];
                 ajax_container.removeChild(node);
+                dom_count --;
             }
         }
         for(let i in arr){
