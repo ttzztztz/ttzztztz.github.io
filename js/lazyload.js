@@ -49,7 +49,6 @@
             right = (box.right <= (window.innerWidth || document.documentElement.clientWidth) + h);
         return (top && left && bottom && right);
     }
-
     var count = 0,
         lazyImages = [],
         selector,
@@ -57,10 +56,9 @@
         offset;
     function LazyLoad(options) {
         options = options || {};
-        selector = options.selector || 'm-lazyload';
-        lazyClass = options.lazyClass || 'lazy-src';
+        selector = options.selector || 'img';
+        lazyClass = options.lazyClass || 'data-src';
         offset = options.offset || 0;
-
         this._init();
     }
     LazyLoad.prototype = {
@@ -73,7 +71,7 @@
         _getLazyImages: function () {
             var imgEles = document.querySelectorAll(selector);
             for (var j = 0; j < imgEles.length; j++) {
-                if (typeof (imgEles[j].getAttribute(lazyClass))) {
+                if (typeof (imgEles[j].getAttribute(lazyClass)) && imgEles[j].src==="img/loading.png") {
                     lazyImages.push(imgEles[j]);
                     count++;
                 }
@@ -83,7 +81,6 @@
             if (!count) return;
             for (var i = 0; i < lazyImages.length; i++) {
                 var lazyImg = lazyImages[i];
-                /* var isInViewport = (offsetTop(lazyImg) - getScrollTop() - offset) < getViewPortHeight(); */
                 if (isElementInViewport(lazyImg)) {
                     lazyImg.src = lazyImg.getAttribute(lazyClass);
                     lazyImg.removeAttribute(lazyClass);
