@@ -320,7 +320,13 @@ a{
     text-align:center;
     height:36px;
 }
+.trending{
+    background:white;
+}
 @media screen and (min-width: 1000px){
+    .trending{
+        padding-top:96px;
+    }
     .download{
         text-align:center;
         margin:30px;
@@ -385,6 +391,9 @@ a{
     }
 }
 @media screen and (max-width: 1000px){
+    .trending{
+        padding-top:0;
+    }
     .download{
         display:none;
     }
@@ -493,10 +502,6 @@ a{
     color:white;
     height:75px;
     margin:0 auto 0 auto;
-}
-.trending{
-    background:white;
-    padding-top:96px;
 }
 .inside_before>p,.trending_before>p{
     font-weight:700;
@@ -706,6 +711,27 @@ a{
 .roll_content_active>h4{
     opacity: 1 !important;
 }
+@media screen and (max-width:1000px){
+    .roll_nav_items{
+        width: 34vw;
+    }
+    .roll_nav{
+        width:306vw;
+        left: -102vw;
+    }
+    .roll_left , .roll_right{
+        opacity: 0 !important;
+    }
+}
+@media screen and (min-width: 1000px){
+    .roll_nav_items{
+        width: 17vw;
+    }
+    .roll_nav{
+        width:153vw;
+        left: -25.5vw;
+    }
+}
 .roll_nav_items{
     position: relative;
     cursor: pointer;
@@ -713,7 +739,6 @@ a{
     margin:0 0;
     bottom: 0;
     opacity:0.75;
-    width: 17vw;
 }
 .roll_nav_items:not(.hidden){
     transition: all .6s cubic-bezier(.3,.8,.1,.95);
@@ -727,6 +752,28 @@ a{
 }
 .hidden{
     opacity: 0;
+}
+.roll_nav_container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin:0;
+    padding:0;
+    text-align:center;
+    max-height:144px;
+    z-index:2;
+}
+.roll_nav{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.roll_nav_active{
+    transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
 .roll_nav_items_active>img{
     vertical-align: bottom;
@@ -764,30 +811,6 @@ a{
 .roll_controls{
     position : absolute;
     bottom: 10vh;
-}
-.roll_nav_container{
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin:0;
-    padding:0;
-    text-align:center;
-    max-height:144px;
-    z-index:2;
-}
-.roll_nav{
-    list-style-type: none;
-    margin:0;
-    padding:0;
-    position: relative;
-    left: -25.5vw;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    width:153vw;
-}
-.roll_nav_active{
-    transition: all .6s cubic-bezier(.3,.8,.1,.95);
 }
 .function_btn{
     background:#ffa400;

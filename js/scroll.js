@@ -86,7 +86,12 @@ function scrollCircle(dir,move){
     jroll_container_list.style.transform = "translate(-"+ scroll*100.0 +"vw)";
     jroll_content_div_list[scroll].classList.add("roll_content_active");
     jroll_nav.classList.add("roll_nav_active");
-    jroll_nav.style.transform = "translate("+ move * factor *17 +"vw)";
+    let screen_now = window.innerWidth;
+    if(screen_now >1000){
+        jroll_nav.style.transform = "translate("+ move * factor *17 +"vw)";
+    } else {
+        jroll_nav.style.transform = "translate("+ move * factor *34 +"vw)";
+    }
     jroll_nav_list[4].children[1].style.display ="none";
     if(dir==="l"){
         jroll_nav_list[1].classList.remove("hidden");
