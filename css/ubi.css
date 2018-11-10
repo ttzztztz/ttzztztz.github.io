@@ -567,6 +567,7 @@ a{
     position:absolute;
     margin:0;
     padding:0;
+    top: 4px;
 }
 .inside_item_active .inside_img_container:after , .trending_item_active .trending_img_container:after{
     content:"";
