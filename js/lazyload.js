@@ -99,7 +99,7 @@
             return false;
         }
         var rect = element.getBoundingClientRect();
-        return (rect.right >= this.view.left && rect.bottom >= this.view.top && rect.left <= this.view.right && rect.top <= this.view.bottom);
+        return (rect.bottom >= this.view.top && rect.top <= this.view.bottom);
     };
     proto.render = function() {
         var nodes = document.querySelectorAll('[data-src]');
