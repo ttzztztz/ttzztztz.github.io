@@ -158,13 +158,14 @@ a{
         display:block;
         position:relative;
         width : 85vw;
+        margin: auto;
     }
     .join_card_img{
         top:0;
         left:0;
         width:100%;
         position:relative;
-        margin-top:-42px;
+        margin-top:-6vh;
     }
     .join_card_img_container{
         position:relative;
