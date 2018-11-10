@@ -153,6 +153,29 @@ function controls_click(e){
     }
 }
 beginScroll();
+let scroll_touch_startX = 0 , scroll_touch_endX = 0 , scroll_touch_moveX=0;
+function scroll_touch_start(event){
+    let touch = event.touches[0];
+    scroll_touch_startX = touch.clientX;
+    scroll_touch_endX = touch.clientX;
+}
+function scroll_touch_move(event){
+    let touch = event.touches[0];
+    scroll_touch_endX = touch.clientX;
+}
+function scroll_touch_end(event){
+    scroll_touch_moveX = scroll_touch_startX - scroll_touch_endX;
+    if(Math.abs(touch_px_to_vw(scroll_touch_moveX))>=5){
+        if(scroll_touch_moveX > 0){
+            scrollCircle("r",1);
+        } else if(scroll_touch_moveX < 0){
+            scrollCircle("l",1);
+        }
+    }
+}
+jul.addEventListener('touchstart',scroll_touch_start,false);
+jul.addEventListener('touchmove',scroll_touch_move,false);
+jul.addEventListener('touchend',scroll_touch_end,false);
 jul.addEventListener("click",ul_click);
 roll_controls.addEventListener("click",controls_click);
 

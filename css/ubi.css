@@ -579,11 +579,11 @@ a{
 .inside_item_active:hover .inside_img_container:after , .trending_item_active:hover .trending_img_container:after{
     opacity: 1;
 }
-.news{
+.news , .more{
     padding-top:96px;
     background:white;
 }
-.news>h4{
+.news>h4 , .more>h4{
     font-weight:700;
     font-size:40px;
     text-transform: uppercase;
@@ -720,6 +720,7 @@ a{
         left: -102vw;
     }
     .roll_left , .roll_right{
+        display:none;
         opacity: 0 !important;
     }
 }
@@ -760,7 +761,6 @@ a{
     margin:0;
     padding:0;
     text-align:center;
-    max-height:144px;
     z-index:2;
 }
 .roll_nav{
