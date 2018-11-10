@@ -506,3 +506,62 @@ jtouch_trending_container.addEventListener('mousedown',mouse_trending_start,fals
 jtouch_trending_container.addEventListener('mousemove',mouse_trending_move,false);
 jtouch_trending_container.addEventListener('mouseup',mouse_trending_end,false);
 jtouch_trending_container.addEventListener('mouseleave',mouse_trending_end,false);
+
+let more_element = document.getElementById("more_games");
+let more_container1 = document.getElementById("more_container1") , more_container2 = document.getElementById("more_container2");
+let touch_more_startX=0,touch_more_endX=0,touch_more_transform=0;
+let mouse_more_on = 0;
+function touch_more_start(event){
+    let touch = event.touches[0];
+    touch_more_startX = touch.clientX;
+    touch_more_endX = touch.clientX;
+}
+function touch_more_move(event){
+    let touch = event.touches[0];
+    touch_more_endX = touch.clientX;
+    more_container1.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+    more_container2.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+}
+function touch_more_end(event){
+    let temp = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    let flag = 0;
+    if(temp >0){
+        touch_more_transform = 0;
+        flag = 1;
+    } else if(temp <=-11950){
+        touch_more_transform = -11950;
+        flag= 1;
+    } else {
+        touch_more_transform = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    }
+    if(flag){
+        more_container1.style.transform = "translateX("+touch_more_transform+"px)";
+        more_container2.style.transform = "translateX("+touch_more_transform+"px)";
+    }
+}
+function mouse_more_start(event){
+    event.preventDefault();
+    mouse_more_on = 1;
+    touch_more_startX = event.clientX;
+    touch_more_endX = event.clientX;
+}
+function mouse_more_move(event){
+    event.preventDefault();
+    if(!mouse_more_on) return false;
+    touch_more_endX = event.clientX;
+    more_container1.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+    more_container2.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+}
+function mouse_more_end(event){
+    event.preventDefault();
+    if(!mouse_more_on) return false;
+    touch_more_end(event);
+    mouse_more_on = 0;
+}
+more_element.addEventListener('touchstart',touch_more_start,false);
+more_element.addEventListener('touchmove',touch_more_move,false);
+more_element.addEventListener('touchend',touch_more_end,false);
+more_element.addEventListener('mousedown',mouse_more_start,false);
+more_element.addEventListener('mousemove',mouse_more_move,false);
+more_element.addEventListener('mouseup',mouse_more_end,false);
+more_element.addEventListener('mouseleave',mouse_more_end,false);
