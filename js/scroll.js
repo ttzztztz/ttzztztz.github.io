@@ -507,9 +507,12 @@ jtouch_trending_container.addEventListener('mousemove',mouse_trending_move,false
 jtouch_trending_container.addEventListener('mouseup',mouse_trending_end,false);
 jtouch_trending_container.addEventListener('mouseleave',mouse_trending_end,false);
 
+let more_nav = document.getElementById("more_nav");
 let more_element = document.getElementById("more_games");
+const more_max_width = -11520;
 let more_container1 = document.getElementById("more_container1") , more_container2 = document.getElementById("more_container2");
 let touch_more_startX=0,touch_more_endX=0,touch_more_transform=0;
+let more_move_dot = 0;
 let mouse_more_on = 0;
 function touch_more_start(event){
     more_container1.classList.remove("more_games_container_active");
@@ -521,8 +524,17 @@ function touch_more_start(event){
 function touch_more_move(event){
     let touch = event.touches[0];
     touch_more_endX = touch.clientX;
-    more_container1.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
-    more_container2.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+    let move_factor = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    let move_percent = parseInt(move_factor / more_max_width * 100.0 / 10);
+    if(move_percent>=10) move_percent = 9;
+    if(move_percent<0) move_percent = 0;
+    if(move_percent != more_move_dot){
+        more_nav.children[more_move_dot].classList.remove("more_dot_active");
+        more_nav.children[move_percent].classList.add("more_dot_active");
+        more_move_dot = move_percent;
+    }
+    more_container1.style.transform = "translateX("+move_factor+"px)";
+    more_container2.style.transform = "translateX("+move_factor+"px)";
 }
 function touch_more_end(event){
     let temp = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
@@ -532,8 +544,8 @@ function touch_more_end(event){
     if(temp >0){
         touch_more_transform = 0;
         flag = 1;
-    } else if(temp <=-11520){
-        touch_more_transform = -11520;
+    } else if(temp <=more_max_width){
+        touch_more_transform = more_max_width;
         flag= 1;
     } else {
         touch_more_transform = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
@@ -555,8 +567,17 @@ function mouse_more_move(event){
     event.preventDefault();
     if(!mouse_more_on) return false;
     touch_more_endX = event.clientX;
-    more_container1.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
-    more_container2.style.transform = "translateX("+(parseInt(touch_more_transform) + touch_more_endX - touch_more_startX)+"px)";
+    let move_factor = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    let move_percent = parseInt(move_factor / more_max_width * 100.0 / 10);
+    if(move_percent>=10) move_percent = 9;
+    if(move_percent<0) move_percent = 0;
+    if(move_percent != more_move_dot){
+        more_nav.children[more_move_dot].classList.remove("more_dot_active");
+        more_nav.children[move_percent].classList.add("more_dot_active");
+        more_move_dot = move_percent;
+    }
+    more_container1.style.transform = "translateX("+move_factor+"px)";
+    more_container2.style.transform = "translateX("+move_factor+"px)";
 }
 function mouse_more_end(event){
     event.preventDefault();
@@ -573,3 +594,61 @@ more_element.addEventListener('mousedown',mouse_more_start,false);
 more_element.addEventListener('mousemove',mouse_more_move,false);
 more_element.addEventListener('mouseup',mouse_more_end,false);
 more_element.addEventListener('mouseleave',mouse_more_end,false);
+
+let jmore_back = document.getElementById("more_back") , jmore_go = document.getElementById("more_go");
+const more_left = "img/left.png" , more_left_focus = "img/left_focus.png";
+const more_right = "img/right.png" , more_right_focus = "img/right_focus.png";
+function more_back_default_style(){
+    jmore_back.children[0].src = more_left;
+}
+function more_back_focus_style(){
+    jmore_back.children[0].src = more_left_focus;
+}
+function more_go_default_style(){
+    jmore_go.children[0].src = more_right;
+}
+function more_go_focus_style(){
+    jmore_go.children[0].src = more_right_focus;
+}
+function more_go(){
+    touch_more_endX=0;
+    touch_more_startX = window.innerWidth;
+    let move_factor = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    more_container1.style.transform = "translateX("+move_factor+"px)";
+    more_container2.style.transform = "translateX("+move_factor+"px)";
+    touch_more_end(null);
+    let move_percent = parseInt(move_factor / more_max_width * 100.0 / 10);
+    if(move_percent>=10) move_percent = 9;
+    if(move_percent<0) move_percent = 0;
+    if(move_percent != more_move_dot){
+        more_nav.children[more_move_dot].classList.remove("more_dot_active");
+        more_nav.children[move_percent].classList.add("more_dot_active");
+        more_move_dot = move_percent;
+    }
+}
+function more_back(){
+    touch_more_endX= window.innerWidth;
+    touch_more_startX = 0;
+    let move_factor = parseInt(touch_more_transform) + touch_more_endX - touch_more_startX;
+    more_container1.style.transform = "translateX("+move_factor+"px)";
+    more_container2.style.transform = "translateX("+move_factor+"px)";
+    touch_more_end(null);
+    let move_percent = parseInt(move_factor / more_max_width * 100.0 / 10);
+    if(move_percent>=10) move_percent = 9;
+    if(move_percent<0) move_percent = 0;
+    if(move_percent != more_move_dot){
+        more_nav.children[more_move_dot].classList.remove("more_dot_active");
+        more_nav.children[move_percent].classList.add("more_dot_active");
+        more_move_dot = move_percent;
+    }
+}
+jmore_back.addEventListener("mousemove",more_back_focus_style);
+jmore_back.addEventListener("mouseout",more_back_default_style);
+jmore_back.addEventListener("touchstart",more_back_focus_style);
+jmore_back.addEventListener("touchend",more_back_default_style);
+jmore_back.addEventListener("click",more_back);
+jmore_go.addEventListener("click",more_go);
+jmore_go.addEventListener("mousemove",more_go_focus_style);
+jmore_go.addEventListener("mouseout",more_go_default_style);
+jmore_go.addEventListener("touchstart",more_go_focus_style);
+jmore_go.addEventListener("touchend",more_go_default_style);
