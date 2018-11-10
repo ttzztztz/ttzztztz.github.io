@@ -1,7 +1,6 @@
-let scroll=2;
-let last_scrolled = 2;
-let timer;
-let timer_cleared = 0;
+//<-- BIG SCROLL ( FIRST )
+let scroll=2 , last_scrolled = 2 , scrolling = 0;
+let timer , timer_cleared = 0;
 let jroll_container_list = document.querySelector("#roll_container_list");
 let jroll_list = document.getElementsByClassName("roll");
 let jroll_content_div_list = document.getElementsByClassName("roll_content");
@@ -10,7 +9,6 @@ let jul = document.getElementById("roll_nav");
 let roll_controls = document.getElementById("roll_controls");
 let jroll_nav = document.getElementById("roll_nav");
 let elements_count = jroll_list.length;
-let scrolling = 0;
 let images_list = [
     {
         "id":0,
@@ -178,7 +176,7 @@ jul.addEventListener('touchmove',scroll_touch_move,false);
 jul.addEventListener('touchend',scroll_touch_end,false);
 jul.addEventListener("click",ul_click);
 roll_controls.addEventListener("click",controls_click);
-
+//<-- TOUCH SCROLL
 let jtouch_inside = document.getElementById("inside_ul");
 let jtouch_inside_container = document.getElementById("inside_container");
 const touch_inside_num = 4;
@@ -344,7 +342,7 @@ jtouch_inside_container.addEventListener('mousedown',mouse_inside_start,false);
 jtouch_inside_container.addEventListener('mousemove',mouse_inside_move,false);
 jtouch_inside_container.addEventListener('mouseup',mouse_inside_end,false);
 jtouch_inside_container.addEventListener('mouseleave',mouse_inside_end,false);
-
+//<-- SECOND TOUCH SCROLL
 let jtouch_trending = document.getElementById("trending_ul");
 let jtouch_trending_container = document.getElementById("trending_container");
 const touch_trending_num = 5;
@@ -506,7 +504,7 @@ jtouch_trending_container.addEventListener('mousedown',mouse_trending_start,fals
 jtouch_trending_container.addEventListener('mousemove',mouse_trending_move,false);
 jtouch_trending_container.addEventListener('mouseup',mouse_trending_end,false);
 jtouch_trending_container.addEventListener('mouseleave',mouse_trending_end,false);
-
+// MORE GAMES CONTROLS
 let more_nav = document.getElementById("more_nav");
 let more_element = document.getElementById("more_games");
 const more_max_width = -11520;
@@ -594,7 +592,6 @@ more_element.addEventListener('mousedown',mouse_more_start,false);
 more_element.addEventListener('mousemove',mouse_more_move,false);
 more_element.addEventListener('mouseup',mouse_more_end,false);
 more_element.addEventListener('mouseleave',mouse_more_end,false);
-
 let jmore_back = document.getElementById("more_back") , jmore_go = document.getElementById("more_go");
 const more_left = "img/left.png" , more_left_focus = "img/left_focus.png";
 const more_right = "img/right.png" , more_right_focus = "img/right_focus.png";
@@ -647,8 +644,8 @@ jmore_back.addEventListener("mouseout",more_back_default_style);
 jmore_back.addEventListener("touchstart",more_back_focus_style);
 jmore_back.addEventListener("touchend",more_back_default_style);
 jmore_back.addEventListener("click",more_back);
-jmore_go.addEventListener("click",more_go);
 jmore_go.addEventListener("mousemove",more_go_focus_style);
 jmore_go.addEventListener("mouseout",more_go_default_style);
 jmore_go.addEventListener("touchstart",more_go_focus_style);
 jmore_go.addEventListener("touchend",more_go_default_style);
+jmore_go.addEventListener("click",more_go);

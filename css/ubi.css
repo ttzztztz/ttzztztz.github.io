@@ -925,6 +925,9 @@ a{
     .news_nav_container>ul{
         display:none;
     }
+    .more_dot{
+        margin: 8px !important;
+    }
 }
 .news_nav_container_li_active{
     font-weight:700;
