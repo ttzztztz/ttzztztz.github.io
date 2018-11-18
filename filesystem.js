@@ -19,7 +19,7 @@ const initFileIndex = [
         ],
     }
 ];
-const nameReg = /^[a-zA-Z0-9._]+$/g;
+const nameReg = /^[a-zA-Z0-9_][a-zA-Z0-9._]+$/g;
 
 let fileObject = {
     address: 0,
