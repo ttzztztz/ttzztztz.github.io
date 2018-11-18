@@ -153,7 +153,7 @@ Method.prototype.ls = function (mode) {
 Method.prototype.cd = function (route) {
     let terminal = this.bindTerminal;
     let path = terminal.formatPath(route);
-    if (path === "/") return -3;
+    if (path === "/" || path==="") return -3;
     let lastChar = route.substr(route.length - 1, 1);
     if (lastChar === "/") {
         route = route.substr(0, route.length - 1);
